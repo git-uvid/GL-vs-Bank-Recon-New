@@ -7,6 +7,10 @@ filter values, promoting readability, maintainability, and testability.
 """
 
 
+import re
+import pandas as pd
+
+
 # --- File and Sheet Names ---
 GL_FILE_SHEET_NAME = 'LN - GL Account Analysis Report'
 BANK_FILE_SHEET_NAME = 'Categorized'
@@ -66,12 +70,57 @@ GL_COLUMN_TYPES = {
     'Party Name': 'string', 'Accounted Sum': 'float'
 }
 
-GL_COLUMNS_TO_FILL_NA = ['Transaction Date', 'Transaction Amount', 'Party Number', 'Party Name']
+GL_COLUMNS_TO_FILL_NA = ['Transaction Date', 'Party Number', 'Party Name']
 GL_TRANSACTION_NUMBER_COL = 'Transaction Number'
 GL_ACCOUNTED_SUM_COL = 'Accounted Sum'
 GL_TYPE_COL = 'Type'
 GL_ACCOUNTED_CR_COL = 'Accounted CR'
 GL_ACCOUNTED_DR_COL = 'Accounted DR'
+
+
+def is_sum_dr_cr_column(col_name: str) -> bool:
+    """
+    Checks if a column name represents a sum, dr, cr, or amount column
+    where blanks should be assumed as 0.
+    Matches exact known names, names containing 'sum', or words like 'dr', 'cr', 'debit', 'credit'.
+    """
+    if not isinstance(col_name, str):
+        return False
+    name = col_name.strip().lower()
+    known_cols = {
+        'entered dr', 'entered cr', 'accounted dr', 'accounted cr',
+        'accounted sum', 'transaction amount', 'amount',
+        'journal entered dr', 'journal entered cr', 'net journal entered',
+        'journal accounted dr', 'journal accounted cr',
+        'debit amount', 'credit amount', 'banking credit amount', 'banking debit amount',
+        'banking sum cr dr', 'gl accounted cr', 'gl accounted dr', 'gl sum accounted cr dr',
+        'bank sum', 'gl sum', 'difference', 'variance'
+    }
+    if name in known_cols or 'sum' in name:
+        return True
+    return bool(re.search(r'\b(dr|cr|debit|credit)\b', name))
+
+
+def clean_numeric_column(series: pd.Series) -> pd.Series:
+    """
+    Converts a pandas Series to float, assuming blanks, empty strings, whitespace,
+    NaN, None, and non-numeric representations as 0.0.
+    Handles commas, currency symbols, and accounting parenthesis (e.g. (100) -> -100).
+    """
+    if series is None or series.empty:
+        return pd.Series(dtype='float64')
+    if pd.api.types.is_numeric_dtype(series):
+        return series.fillna(0.0).astype(float)
+    cleaned = series.astype(str).str.strip()
+    cleaned = cleaned.replace({
+        '': '0', 'nan': '0', 'NaN': '0', 'None': '0', '<NA>': '0',
+        'null': '0', 'NULL': '0', '-': '0'
+    })
+    # Remove currency symbols and formatting commas
+    cleaned = cleaned.str.replace('$', '', regex=False).str.replace(',', '', regex=False)
+    # Convert accounting parentheses e.g. (500) -> -500
+    cleaned = cleaned.apply(lambda x: f"-{x[1:-1]}" if isinstance(x, str) and x.startswith('(') and x.endswith(')') else x)
+    return pd.to_numeric(cleaned, errors='coerce').fillna(0.0)
 #----Added as part of GL categorization----
 JOURNAL_COL = 'Journal Name'
 DESCRIPTION_COL = 'Description'

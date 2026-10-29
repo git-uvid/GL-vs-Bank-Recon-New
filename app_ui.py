@@ -7,7 +7,8 @@ from config import (
     GL_FILE_SHEET_NAME, BANK_FILE_SHEET_NAME, OUTSTANDING_CHECK_REPORT_SHEET_NAME,
     GL_COLUMNS_IN_FILE, GL_COLUMN_RENAME_MAP, GL_COLUMNS_REQUIRED, GL_COLUMN_TYPES,
     BANK_COLUMNS_REQUIRED, BANK_COLUMN_TYPES,
-    OUTSTANDING_CHECK_COLUMN_TYPES, EXCEL_OUTPUT_FILENAME, BANK_COMPARISON_KEY_COL
+    OUTSTANDING_CHECK_COLUMN_TYPES, EXCEL_OUTPUT_FILENAME, BANK_COMPARISON_KEY_COL,
+    is_sum_dr_cr_column, clean_numeric_column
 )
 from reconciliation_core import run_full_reconciliation
 from category_gl import gl_type  # Ensures reload if updated
@@ -136,6 +137,19 @@ def tab_file_upload():
                                        f"Missing old-format columns: {missing_old}")
                     else:
                         logger.info("GL file detected with old column names. No renaming needed.")
+                    # Clean sum, dr, cr, and numeric columns to assume blanks as 0
+                    for col in gl_raw_df.columns:
+                        if is_sum_dr_cr_column(col) or (col in GL_COLUMN_TYPES and GL_COLUMN_TYPES[col] == 'float'):
+                            gl_raw_df[col] = clean_numeric_column(gl_raw_df[col])
+
+                    for col in bank_raw_df.columns:
+                        if is_sum_dr_cr_column(col) or (col in BANK_COLUMN_TYPES and BANK_COLUMN_TYPES[col] == 'float'):
+                            bank_raw_df[col] = clean_numeric_column(bank_raw_df[col])
+
+                    for col in outstanding_raw_df.columns:
+                        if is_sum_dr_cr_column(col) or (col in OUTSTANDING_CHECK_COLUMN_TYPES and OUTSTANDING_CHECK_COLUMN_TYPES[col] == 'float'):
+                            outstanding_raw_df[col] = clean_numeric_column(outstanding_raw_df[col])
+
                     gl_processed_df = gl_raw_df[GL_COLUMNS_REQUIRED].astype(GL_COLUMN_TYPES)
                     bank_processed_df = bank_raw_df[BANK_COLUMNS_REQUIRED].astype(BANK_COLUMN_TYPES)
                     outstanding_processed_df = outstanding_raw_df.astype(OUTSTANDING_CHECK_COLUMN_TYPES)
@@ -219,6 +233,10 @@ def tab_reconciliation():
             if "Type" not in df.columns:
                 st.error("❌ 'Type' column not found in uploaded GL file. Reconciliation requires it.")
                 return
+            # Clean sum, dr, cr, and numeric columns to assume blanks as 0
+            for col in df.columns:
+                if is_sum_dr_cr_column(col) or (col in GL_COLUMN_TYPES and GL_COLUMN_TYPES.get(col) == 'float'):
+                    df[col] = clean_numeric_column(df[col])
             st.session_state.categorized_gl = df
             st.success("✅ Categorized GL uploaded successfully!")
         except Exception as e:

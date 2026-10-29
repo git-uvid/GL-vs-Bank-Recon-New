@@ -2518,3 +2518,339 @@ KeyError: "['CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Source', 'Category', 'De
 2026-10-28 09:57:44,914 - reconciliation_core - INFO - Excel report generated successfully.
 2026-10-28 09:57:46,211 - app_ui - INFO - Header displayed.
 2026-10-28 09:57:46,213 - app_ui - INFO - Session state initialized.
+2026-10-29 12:25:59,917 - app_ui - INFO - Header displayed.
+2026-10-29 12:25:59,929 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:00,885 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:00,887 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:13,077 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:13,079 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:17,902 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:17,903 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:19,329 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:19,330 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:24,158 - app_ui - INFO - GL file detected with new column names. Columns renamed to internal format.
+2026-10-29 12:26:24,181 - app_ui - INFO - Files uploaded and processed.
+2026-10-29 12:26:27,041 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:27,042 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:27,077 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:26:27,078 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:26:27,084 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:26:27,090 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:26:27,091 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:26:27,094 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:26:27,116 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:26:27,117 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:26:27,713 - category_gl - INFO - Starting GL type classification.
+2026-10-29 12:26:27,718 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2026-10-29 12:26:27,718 - category_gl - INFO - Fill Checks based on the SOP
+2026-10-29 12:26:27,723 - category_gl - INFO - Checks filled based on SOP
+2026-10-29 12:26:27,724 - category_gl - INFO - Fill ACH based on SOP
+2026-10-29 12:26:27,726 - category_gl - INFO - ACH filled based on SOP
+2026-10-29 12:26:27,726 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2026-10-29 12:26:27,734 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2026-10-29 12:26:27,735 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:26:27,737 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:26:27,737 - category_gl - INFO - Fill square based on SOP
+2026-10-29 12:26:27,740 - category_gl - INFO - Filled square based on SOP
+2026-10-29 12:26:27,741 - category_gl - INFO - Fill ticketing based on SOP
+2026-10-29 12:26:27,745 - category_gl - INFO - Filled ticketing based on SOP
+2026-10-29 12:26:27,745 - category_gl - INFO - Fill AR based on Batch name
+2026-10-29 12:26:27,754 - category_gl - INFO - Filled AR based on Batch name
+2026-10-29 12:26:27,756 - category_gl - INFO - Fill wire based on Batch name
+2026-10-29 12:26:27,760 - category_gl - INFO - Filled wire based on Batch name
+2026-10-29 12:26:27,768 - category_gl - INFO - GL type classification completed successfully.
+2026-10-29 12:26:30,089 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:30,090 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:36,280 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:36,282 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:38,441 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:38,442 - app_ui - INFO - Session state initialized.
+2026-10-29 12:26:38,499 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2026-10-29 12:26:38,500 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:26:38,500 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:26:38,505 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:26:38,507 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:26:38,508 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:26:38,510 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:26:38,519 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:26:38,519 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:26:39,090 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2026-10-29 12:26:39,108 - reconciliation_core - INFO - GL data aggregated.
+2026-10-29 12:26:39,119 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2026-10-29 12:26:39,131 - stBankGL - INFO - Variance and comments calculation complete.
+2026-10-29 12:26:39,132 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2026-10-29 12:26:39,892 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2026-10-29 12:26:39,892 - stOutstanding - INFO - Creating party dimension table.
+2026-10-29 12:26:39,913 - stOutstanding - INFO - Party dimension table created successfully.
+2026-10-29 12:26:39,917 - stOutstanding - INFO - Processing outstanding bank checks.
+2026-10-29 12:26:39,937 - stOutstanding - INFO - Outstanding bank checks processed.
+2026-10-29 12:26:39,938 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2026-10-29 12:26:39,948 - stOutstanding - INFO - Identified 0 new outstanding checks from GL.
+2026-10-29 12:26:39,954 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2026-10-29 12:26:39,976 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2026-10-29 12:26:39,984 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2026-10-29 12:26:39,985 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2026-10-29 12:26:39,985 - stCreatePivot - INFO - Creating bank pivot table.
+2026-10-29 12:26:40,008 - stCreatePivot - INFO - Bank pivot table created successfully.
+2026-10-29 12:26:40,009 - stCreatePivot - INFO - Creating GL pivot table.
+2026-10-29 12:26:40,025 - stCreatePivot - INFO - GL pivot table created successfully.
+2026-10-29 12:26:40,026 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2026-10-29 12:26:40,038 - stCreatePivot - INFO - Difference grid created successfully.
+2026-10-29 12:26:40,039 - reconciliation_core - INFO - Pivot tables created.
+2026-10-29 12:26:40,040 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2026-10-29 12:26:40,059 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2026-10-29 12:26:40,060 - stExportXl - INFO - Starting formatted Excel export.
+2026-10-29 12:26:40,888 - reconciliation_core - INFO - Excel report generated successfully.
+2026-10-29 12:26:42,177 - app_ui - INFO - Header displayed.
+2026-10-29 12:26:42,178 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:13,086 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:13,089 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:15,584 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:15,585 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:16,661 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:16,662 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:18,259 - app_ui - INFO - GL file detected with new column names. Columns renamed to internal format.
+2026-10-29 12:29:18,285 - app_ui - INFO - Files uploaded and processed.
+2026-10-29 12:29:20,749 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:20,751 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:20,775 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:29:20,781 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:29:20,788 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:29:20,793 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:29:20,794 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:29:20,797 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:29:20,807 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:29:20,809 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:29:21,520 - category_gl - INFO - Starting GL type classification.
+2026-10-29 12:29:21,524 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2026-10-29 12:29:21,525 - category_gl - INFO - Fill Checks based on the SOP
+2026-10-29 12:29:21,529 - category_gl - INFO - Checks filled based on SOP
+2026-10-29 12:29:21,530 - category_gl - INFO - Fill ACH based on SOP
+2026-10-29 12:29:21,532 - category_gl - INFO - ACH filled based on SOP
+2026-10-29 12:29:21,533 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2026-10-29 12:29:21,540 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2026-10-29 12:29:21,541 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:29:21,543 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:29:21,543 - category_gl - INFO - Fill square based on SOP
+2026-10-29 12:29:21,547 - category_gl - INFO - Filled square based on SOP
+2026-10-29 12:29:21,548 - category_gl - INFO - Fill ticketing based on SOP
+2026-10-29 12:29:21,552 - category_gl - INFO - Filled ticketing based on SOP
+2026-10-29 12:29:21,553 - category_gl - INFO - Fill AR based on Batch name
+2026-10-29 12:29:21,557 - category_gl - INFO - Filled AR based on Batch name
+2026-10-29 12:29:21,558 - category_gl - INFO - Fill wire based on Batch name
+2026-10-29 12:29:21,560 - category_gl - INFO - Filled wire based on Batch name
+2026-10-29 12:29:21,567 - category_gl - INFO - GL type classification completed successfully.
+2026-10-29 12:29:23,470 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:23,471 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:29,441 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:29,442 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:30,620 - app_ui - INFO - Header displayed.
+2026-10-29 12:29:30,621 - app_ui - INFO - Session state initialized.
+2026-10-29 12:29:30,678 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2026-10-29 12:29:30,679 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:29:30,679 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:29:30,684 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:29:30,690 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:29:30,690 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:29:30,692 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:29:30,700 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:29:30,701 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:29:31,450 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2026-10-29 12:29:31,466 - reconciliation_core - INFO - GL data aggregated.
+2026-10-29 12:29:31,479 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2026-10-29 12:29:31,496 - stBankGL - INFO - Variance and comments calculation complete.
+2026-10-29 12:29:31,497 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2026-10-29 12:29:31,509 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2026-10-29 12:29:31,510 - stOutstanding - INFO - Creating party dimension table.
+2026-10-29 12:29:31,534 - stOutstanding - INFO - Party dimension table created successfully.
+2026-10-29 12:29:31,538 - stOutstanding - INFO - Processing outstanding bank checks.
+2026-10-29 12:29:31,557 - stOutstanding - INFO - Outstanding bank checks processed.
+2026-10-29 12:29:31,559 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2026-10-29 12:29:31,569 - stOutstanding - INFO - Identified 0 new outstanding checks from GL.
+2026-10-29 12:29:31,575 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2026-10-29 12:29:31,594 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2026-10-29 12:29:31,606 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2026-10-29 12:29:31,607 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2026-10-29 12:29:31,608 - stCreatePivot - INFO - Creating bank pivot table.
+2026-10-29 12:29:31,628 - stCreatePivot - INFO - Bank pivot table created successfully.
+2026-10-29 12:29:31,629 - stCreatePivot - INFO - Creating GL pivot table.
+2026-10-29 12:29:31,646 - stCreatePivot - INFO - GL pivot table created successfully.
+2026-10-29 12:29:31,647 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2026-10-29 12:29:31,661 - stCreatePivot - INFO - Difference grid created successfully.
+2026-10-29 12:29:31,662 - reconciliation_core - INFO - Pivot tables created.
+2026-10-29 12:29:31,663 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2026-10-29 12:29:31,679 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2026-10-29 12:29:31,680 - stExportXl - INFO - Starting formatted Excel export.
+2026-10-29 12:29:32,680 - reconciliation_core - INFO - Excel report generated successfully.
+2026-10-29 12:30:43,901 - app_ui - INFO - Header displayed.
+2026-10-29 12:30:43,902 - app_ui - INFO - Session state initialized.
+2026-10-29 12:30:55,973 - app_ui - INFO - Header displayed.
+2026-10-29 12:30:55,974 - app_ui - INFO - Session state initialized.
+2026-10-29 12:30:59,242 - app_ui - INFO - Header displayed.
+2026-10-29 12:30:59,243 - app_ui - INFO - Session state initialized.
+2026-10-29 12:30:59,885 - app_ui - INFO - Header displayed.
+2026-10-29 12:30:59,886 - app_ui - INFO - Session state initialized.
+2026-10-29 12:31:01,389 - app_ui - INFO - GL file detected with new column names. Columns renamed to internal format.
+2026-10-29 12:31:01,411 - app_ui - INFO - Files uploaded and processed.
+2026-10-29 12:31:04,388 - app_ui - INFO - Header displayed.
+2026-10-29 12:31:04,389 - app_ui - INFO - Session state initialized.
+2026-10-29 12:31:04,414 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:31:04,414 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:31:04,424 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:31:04,429 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:31:04,430 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:31:04,434 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:31:04,444 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:31:04,444 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:31:05,118 - category_gl - INFO - Starting GL type classification.
+2026-10-29 12:31:05,123 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2026-10-29 12:31:05,124 - category_gl - INFO - Fill Checks based on the SOP
+2026-10-29 12:31:05,128 - category_gl - INFO - Checks filled based on SOP
+2026-10-29 12:31:05,129 - category_gl - INFO - Fill ACH based on SOP
+2026-10-29 12:31:05,133 - category_gl - INFO - ACH filled based on SOP
+2026-10-29 12:31:05,133 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2026-10-29 12:31:05,140 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2026-10-29 12:31:05,141 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:31:05,143 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:31:05,143 - category_gl - INFO - Fill square based on SOP
+2026-10-29 12:31:05,146 - category_gl - INFO - Filled square based on SOP
+2026-10-29 12:31:05,146 - category_gl - INFO - Fill ticketing based on SOP
+2026-10-29 12:31:05,151 - category_gl - INFO - Filled ticketing based on SOP
+2026-10-29 12:31:05,152 - category_gl - INFO - Fill AR based on Batch name
+2026-10-29 12:31:05,155 - category_gl - INFO - Filled AR based on Batch name
+2026-10-29 12:31:05,155 - category_gl - INFO - Fill wire based on Batch name
+2026-10-29 12:31:05,158 - category_gl - INFO - Filled wire based on Batch name
+2026-10-29 12:31:05,165 - category_gl - INFO - GL type classification completed successfully.
+2026-10-29 12:31:06,551 - app_ui - INFO - Header displayed.
+2026-10-29 12:31:06,554 - app_ui - INFO - Session state initialized.
+2026-10-29 12:31:23,970 - app_ui - INFO - Header displayed.
+2026-10-29 12:31:23,971 - app_ui - INFO - Session state initialized.
+2026-10-29 12:31:28,783 - app_ui - INFO - Header displayed.
+2026-10-29 12:31:28,784 - app_ui - INFO - Session state initialized.
+2026-10-29 12:31:28,844 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2026-10-29 12:31:28,844 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:31:28,845 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:31:28,851 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:31:28,854 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:31:28,855 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:31:28,856 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:31:28,868 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:31:28,869 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:31:29,460 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2026-10-29 12:31:29,473 - reconciliation_core - INFO - GL data aggregated.
+2026-10-29 12:31:29,486 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2026-10-29 12:31:29,502 - stBankGL - INFO - Variance and comments calculation complete.
+2026-10-29 12:31:29,503 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2026-10-29 12:31:29,516 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2026-10-29 12:31:29,516 - stOutstanding - INFO - Creating party dimension table.
+2026-10-29 12:31:29,539 - stOutstanding - INFO - Party dimension table created successfully.
+2026-10-29 12:31:29,543 - stOutstanding - INFO - Processing outstanding bank checks.
+2026-10-29 12:31:29,559 - stOutstanding - INFO - Outstanding bank checks processed.
+2026-10-29 12:31:29,560 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2026-10-29 12:31:29,572 - stOutstanding - INFO - Identified 0 new outstanding checks from GL.
+2026-10-29 12:31:29,577 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2026-10-29 12:31:29,594 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2026-10-29 12:31:29,605 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2026-10-29 12:31:29,606 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2026-10-29 12:31:29,606 - stCreatePivot - INFO - Creating bank pivot table.
+2026-10-29 12:31:29,626 - stCreatePivot - INFO - Bank pivot table created successfully.
+2026-10-29 12:31:29,626 - stCreatePivot - INFO - Creating GL pivot table.
+2026-10-29 12:31:29,648 - stCreatePivot - INFO - GL pivot table created successfully.
+2026-10-29 12:31:29,649 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2026-10-29 12:31:29,664 - stCreatePivot - INFO - Difference grid created successfully.
+2026-10-29 12:31:29,664 - reconciliation_core - INFO - Pivot tables created.
+2026-10-29 12:31:29,665 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2026-10-29 12:31:29,682 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2026-10-29 12:31:29,683 - stExportXl - INFO - Starting formatted Excel export.
+2026-10-29 12:31:30,544 - reconciliation_core - INFO - Excel report generated successfully.
+2026-10-29 12:31:34,312 - app_ui - INFO - Header displayed.
+2026-10-29 12:31:34,313 - app_ui - INFO - Session state initialized.
+2026-10-29 12:32:49,221 - app_ui - INFO - Header displayed.
+2026-10-29 12:32:49,223 - app_ui - INFO - Session state initialized.
+2026-10-29 12:32:51,236 - app_ui - INFO - Header displayed.
+2026-10-29 12:32:51,239 - app_ui - INFO - Session state initialized.
+2026-10-29 12:33:48,391 - app_ui - INFO - Header displayed.
+2026-10-29 12:33:48,393 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:05,132 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:05,133 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:07,670 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:07,671 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:08,694 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:08,695 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:09,911 - app_ui - INFO - GL file detected with new column names. Columns renamed to internal format.
+2026-10-29 12:34:09,936 - app_ui - INFO - Files uploaded and processed.
+2026-10-29 12:34:12,063 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:12,063 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:12,095 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:34:12,097 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:34:12,100 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:34:12,103 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:34:12,104 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:34:12,109 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:34:12,117 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:34:12,118 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:34:12,671 - category_gl - INFO - Starting GL type classification.
+2026-10-29 12:34:12,677 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2026-10-29 12:34:12,677 - category_gl - INFO - Fill Checks based on the SOP
+2026-10-29 12:34:12,681 - category_gl - INFO - Checks filled based on SOP
+2026-10-29 12:34:12,682 - category_gl - INFO - Fill ACH based on SOP
+2026-10-29 12:34:12,683 - category_gl - INFO - ACH filled based on SOP
+2026-10-29 12:34:12,684 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2026-10-29 12:34:12,689 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2026-10-29 12:34:12,690 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:34:12,693 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2026-10-29 12:34:12,695 - category_gl - INFO - Fill square based on SOP
+2026-10-29 12:34:12,698 - category_gl - INFO - Filled square based on SOP
+2026-10-29 12:34:12,698 - category_gl - INFO - Fill ticketing based on SOP
+2026-10-29 12:34:12,703 - category_gl - INFO - Filled ticketing based on SOP
+2026-10-29 12:34:12,704 - category_gl - INFO - Fill AR based on Batch name
+2026-10-29 12:34:12,706 - category_gl - INFO - Filled AR based on Batch name
+2026-10-29 12:34:12,707 - category_gl - INFO - Fill wire based on Batch name
+2026-10-29 12:34:12,710 - category_gl - INFO - Filled wire based on Batch name
+2026-10-29 12:34:12,715 - category_gl - INFO - GL type classification completed successfully.
+2026-10-29 12:34:48,945 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:48,946 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:51,259 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:51,260 - app_ui - INFO - Session state initialized.
+2026-10-29 12:34:51,306 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2026-10-29 12:34:51,307 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2026-10-29 12:34:51,308 - stBankGL - INFO - get transaction number from CK#
+2026-10-29 12:34:51,311 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2026-10-29 12:34:51,315 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2026-10-29 12:34:51,316 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2026-10-29 12:34:51,318 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2026-10-29 12:34:51,332 - stBankGL - INFO - Initial cleaning and preparation complete.
+2026-10-29 12:34:51,333 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2026-10-29 12:34:51,897 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2026-10-29 12:34:51,909 - reconciliation_core - INFO - GL data aggregated.
+2026-10-29 12:34:51,922 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2026-10-29 12:34:51,940 - stBankGL - INFO - Variance and comments calculation complete.
+2026-10-29 12:34:51,941 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2026-10-29 12:34:51,952 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2026-10-29 12:34:51,953 - stOutstanding - INFO - Creating party dimension table.
+2026-10-29 12:34:51,976 - stOutstanding - INFO - Party dimension table created successfully.
+2026-10-29 12:34:51,979 - stOutstanding - INFO - Processing outstanding bank checks.
+2026-10-29 12:34:51,995 - stOutstanding - INFO - Outstanding bank checks processed.
+2026-10-29 12:34:51,996 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2026-10-29 12:34:52,007 - stOutstanding - INFO - Identified 0 new outstanding checks from GL.
+2026-10-29 12:34:52,013 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2026-10-29 12:34:52,029 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2026-10-29 12:34:52,036 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2026-10-29 12:34:52,037 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2026-10-29 12:34:52,038 - stCreatePivot - INFO - Creating bank pivot table.
+2026-10-29 12:34:52,058 - stCreatePivot - INFO - Bank pivot table created successfully.
+2026-10-29 12:34:52,058 - stCreatePivot - INFO - Creating GL pivot table.
+2026-10-29 12:34:52,077 - stCreatePivot - INFO - GL pivot table created successfully.
+2026-10-29 12:34:52,078 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2026-10-29 12:34:52,088 - stCreatePivot - INFO - Difference grid created successfully.
+2026-10-29 12:34:52,089 - reconciliation_core - INFO - Pivot tables created.
+2026-10-29 12:34:52,090 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2026-10-29 12:34:52,105 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2026-10-29 12:34:52,106 - stExportXl - INFO - Starting formatted Excel export.
+2026-10-29 12:34:52,941 - reconciliation_core - INFO - Excel report generated successfully.
+2026-10-29 12:34:58,542 - app_ui - INFO - Header displayed.
+2026-10-29 12:34:58,543 - app_ui - INFO - Session state initialized.
+2026-10-29 14:20:12,033 - app_ui - INFO - Header displayed.
+2026-10-29 14:20:12,036 - app_ui - INFO - Session state initialized.
+2026-10-29 14:20:17,075 - app_ui - INFO - Header displayed.
+2026-10-29 14:20:17,077 - app_ui - INFO - Session state initialized.

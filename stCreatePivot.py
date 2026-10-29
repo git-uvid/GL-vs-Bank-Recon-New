@@ -5,7 +5,8 @@ import logging
 # Import constants from config.py
 from config import (
     BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL, BANK_TRN_TYPE_COL,
-    GL_ACCOUNTED_CR_COL, GL_ACCOUNTED_DR_COL, GL_TYPE_COL
+    GL_ACCOUNTED_CR_COL, GL_ACCOUNTED_DR_COL, GL_TYPE_COL,
+    clean_numeric_column
 )
 
 logger = logging.getLogger(__name__)
@@ -29,7 +30,7 @@ def create_bank_pivot(bank_df: pd.DataFrame) -> pd.DataFrame:
     # Ensure numeric types and fill NA
     for col in [BANK_DEBIT_AMOUNT_COL,BANK_CREDIT_AMOUNT_COL]:
         if col in bank_data_copy.columns:
-            bank_data_copy[col] = pd.to_numeric(bank_data_copy[col], errors='coerce').fillna(0)
+            bank_data_copy[col] = clean_numeric_column(bank_data_copy[col])
         else:
             logger.warning(f"Column '{col}' not found in bank data for pivot. Filling NA with 0.")
 
@@ -81,7 +82,7 @@ def create_gl_pivot(gl_df: pd.DataFrame) -> pd.DataFrame:
     # Ensure numeric types and fill NA
     for col in [GL_ACCOUNTED_CR_COL, GL_ACCOUNTED_DR_COL]:
         if col in gl_data_copy.columns:
-            gl_data_copy[col] = pd.to_numeric(gl_data_copy[col], errors='coerce').fillna(0)
+            gl_data_copy[col] = clean_numeric_column(gl_data_copy[col])
         else:
             logger.warning(f"Column '{col}' not found in GL data for pivot. Filling NA with 0.")
 

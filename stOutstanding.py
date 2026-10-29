@@ -361,7 +361,8 @@ def update_descriptions_OST(final_ost:pd.DataFrame,gl_cleaned:pd.DataFrame) -> p
     return ost_final_chks_desc_merged : with descriptions filled in empty party name column 
     """
     # Step 1: Merge the two dataframes on 'transaction_number'
-    ost_final_chks_desc_merged = final_ost.merge(gl_cleaned[['Transaction Number', 'Description']], 
+    gl_desc_lookup = gl_cleaned[['Transaction Number', 'Description']].dropna(subset=['Transaction Number']).drop_duplicates(subset=['Transaction Number'])
+    ost_final_chks_desc_merged = final_ost.merge(gl_desc_lookup, 
                         left_on='Check number',
                         right_on = 'Transaction Number',
                         how='left', 

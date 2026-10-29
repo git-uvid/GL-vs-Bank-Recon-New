@@ -17,7 +17,8 @@ from config import (
     GL_TYPE_COL, BANK_TRN_TYPE_COL, PIVOT_SHEET_NAME, GL_VS_BANK_SHEET_NAME,
     OUTSTANDING_CHECK_SHEET_NAME, HEADER_BG_COLOR_PIVOT, HEADER_TEXT_COLOR_PIVOT,
     DATA_CELL_BORDER_COLOR_PIVOT, HEADER_BG_COLOR_RECON, HEADER_TEXT_COLOR_RECON,
-    BANK_REFERENCE_COL, CUSTOMER_REFERENCE_COL, GL_VS_BANK_COL
+    BANK_REFERENCE_COL, CUSTOMER_REFERENCE_COL, GL_VS_BANK_COL,
+    clean_numeric_column, is_sum_dr_cr_column
 )
 
 logger = logging.getLogger(__name__)
@@ -50,7 +51,10 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         logger.info("GL and Bank data cleaned and prepared.")
 
         # 2. Aggregate GL data
-        gl_cleaned[GL_ACCOUNTED_SUM_COL] = pd.to_numeric(gl_cleaned[GL_ACCOUNTED_SUM_COL], errors="coerce")
+        for col in gl_cleaned.columns:
+            if is_sum_dr_cr_column(col):
+                gl_cleaned[col] = clean_numeric_column(gl_cleaned[col])
+        gl_cleaned[GL_ACCOUNTED_SUM_COL] = clean_numeric_column(gl_cleaned[GL_ACCOUNTED_SUM_COL])
         
 
         gl_agg = gl_cleaned.groupby([

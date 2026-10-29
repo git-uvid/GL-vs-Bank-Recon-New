@@ -11,7 +11,8 @@ from config import (
     GL_ACCOUNTED_SUM_COL, BANK_COMPARISON_KEY_COL, GL_NO_TRANS_NUMBER,
     NO_REFERENCE_NUMBER, COMMENT_GL_NO_BANK_YES, COMMENT_GL_YES_BANK_NO,
     COMMENT_FULL_MATCH, COMMENT_PARTIAL_MATCH, BANK_TRN_TYPE_COL,BANK_CATEGORY_LIST,
-    DESCRIPTION_COL,DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2, DESC_TRANSNO_SEARCH1
+    DESCRIPTION_COL,DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2, DESC_TRANSNO_SEARCH1,
+    is_sum_dr_cr_column, clean_numeric_column
 )
 
 # Configure logging
@@ -161,7 +162,7 @@ def calculate_variance_and_comments(df: pd.DataFrame) -> pd.DataFrame:
     cols_to_fill_zero = [GL_ACCOUNTED_SUM_COL, BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL]
     for col in cols_to_fill_zero:
         if col in data_copy.columns:
-            data_copy[col] = pd.to_numeric(data_copy[col], errors='coerce').fillna(0)
+            data_copy[col] = clean_numeric_column(data_copy[col])
         else:
             logger.warning(f"Column '{col}' not found for filling NA with 0.")
 
@@ -236,6 +237,16 @@ def clean_and_prepare_gl_bank_data(gl_df: pd.DataFrame, bank_df: pd.DataFrame) -
             gl_df_cleaned[col] = gl_df_cleaned[col].astype(str).str.lstrip('0')
         else:
             logger.warning(f"Column '{col}' not found in GL data for stripping leading zeros.")
+
+    # Ensure all sum, dr, cr, and amount columns in GL assume blanks as 0
+    for col in gl_df_cleaned.columns:
+        if is_sum_dr_cr_column(col):
+            gl_df_cleaned[col] = clean_numeric_column(gl_df_cleaned[col])
+
+    # Clean numeric columns in bank data
+    for col in [BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL]:
+        if col in bank_df.columns:
+            bank_df[col] = clean_numeric_column(bank_df[col])
 
     
 

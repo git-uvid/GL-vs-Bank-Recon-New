@@ -34,6 +34,19 @@ def get_comment_format_style(comment: str) -> str:
     else:
         return 'background-color: red; color: white'
 
+
+def _safe_column_data_max_len(series: pd.Series) -> int:
+    """Safely calculates max string length of data in a series without throwing on float/NA."""
+    if series is None or series.empty:
+        return 0
+    def _safe_len(val):
+        if val is None or pd.isna(val) or val == '':
+            return 0
+        return len(str(val))
+    lengths = series.map(_safe_len)
+    max_len = lengths.max()
+    return int(max_len) if pd.notna(max_len) else 0
+
 def write_reconciliation_summary_sheet(
     writer: pd.ExcelWriter,
     bank_pivot_df: pd.DataFrame,
@@ -174,8 +187,10 @@ def write_reconciliation_summary_sheet(
                 col_data_max_len = 0
                 if not df_to_write[col_name].empty:
                     # Calculate max length of data in the column
-                    lengths = df_to_write[col_name].astype(str).map(len)
-                    col_data_max_len = lengths.max()
+                    col_series = df_to_write.iloc[:, col_idx] if hasattr(df_to_write, 'iloc') else df_to_write[col_name]
+                    col_data_max_len = _safe_column_data_max_len(col_series)
+
+
                     if pd.isna(col_data_max_len): # Handle case where max() might return NaN for empty series
                         col_data_max_len = 0
 
@@ -341,8 +356,9 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
                 col_data_max_len = 0
                 if not original_df_data[col].empty:
                     # Calculate max length of data in the column
-                    lengths = original_df_data[col].astype(str).map(len)
-                    col_data_max_len = lengths.max()
+                    col_series = original_df_data.iloc[:, i] if hasattr(original_df_data, 'iloc') else original_df_data[col]
+                    col_data_max_len = _safe_column_data_max_len(col_series)
+
                     if pd.isna(col_data_max_len):
                         col_data_max_len = 0
                 max_len = max(int(col_data_max_len), len(str(col))) + 2
